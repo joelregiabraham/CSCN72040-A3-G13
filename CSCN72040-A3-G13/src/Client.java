@@ -12,18 +12,21 @@ public static void main(String[] args) {
      GarageDoor garageDoor = new GarageDoor();
      LivingRoomLight livingRoomLight = new LivingRoomLight();
      OutdoorLight outdoorLight = new OutdoorLight();
+     AllLight allLight = new AllLight();
      
      // Create on commands
      Command airConditionerOnCommand = new AirConditionerTurnONCommand(airConditioner);
      Command garageDoorOpenCommand = new GarageDoorTurnONCommand(garageDoor);
      Command livingRoomLightOnCommand = new LivingRoomLightTurnONCommand(livingRoomLight);
      Command outdoorLightOnCommand = new OutdoorLightTurnONCommand(outdoorLight);
+     Command allLightOnCommand = new AllLightTurnONCommand(livingRoomLight, outdoorLight);
 
      // Create off commands
      Command airConditionerOffCommand = new AirConditionerTurnOFFCommand(airConditioner);
      Command garageDoorCloseCommand = new GarageDoorTurnOFFCommand(garageDoor);
      Command livingRoomLightOffCommand = new LivingRoomLightTurnOFFCommand(livingRoomLight);
      Command outdoorLightOffCommand = new OutdoorLightTurnOFFCommand(outdoorLight);
+     Command allLightOffCommand = new AllLightTurnOFFCommand(livingRoomLight, outdoorLight);
 
      // Create remote control
      //RemoteControl remoteControl = new RemoteControl();
@@ -34,10 +37,13 @@ public static void main(String[] args) {
      remoteControl.setCommand("Garage Door Slot OPEN", garageDoorOpenCommand);
      remoteControl.setCommand("Living Room Light Slot ON", livingRoomLightOnCommand);
      remoteControl.setCommand("Outdoor Light Slot ON", outdoorLightOnCommand);
+     remoteControl.setCommand("All Lights Slot ON", allLightOnCommand);
+     
      remoteControl.setCommand("Air-Conditioner Slot OFF", airConditionerOffCommand);
      remoteControl.setCommand("Garage Door Slot CLOSE", garageDoorCloseCommand);
      remoteControl.setCommand("Living Room Light Slot OFF", livingRoomLightOffCommand);
      remoteControl.setCommand("Outdoor Light Slot OFF", outdoorLightOffCommand);
+     remoteControl.setCommand("All Lights Slot OFF", allLightOffCommand);
 
 
      // Press buttons

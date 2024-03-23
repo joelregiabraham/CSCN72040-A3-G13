@@ -88,6 +88,7 @@ public class MainWindow extends JFrame  {
         lRoomOffBttn.addActionListener(e -> remoteControl.pressButton("Living Room Light Slot OFF"));
         odLightOnBttn.addActionListener(e -> remoteControl.pressButton("Outdoor Light Slot ON"));
         odLightOffBttn.addActionListener(e -> remoteControl.pressButton("Outdoor Light Slot OFF"));
+      
 
         // Add action listeners to undo and reset buttons
         undoBttn.addActionListener(e -> {
