@@ -1,15 +1,28 @@
+import java.awt.EventQueue;
 
 public class Client {
 
 public static void main(String[] args) {
-  
-		// Create Receivers
+	
+	// Calling Swing JFrame GUI:
+	EventQueue.invokeLater(new Runnable() {
+		public void run() {
+			try {
+				MainWindow frame = new MainWindow();
+				frame.setVisible(true);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+	});
+	 
+	// Create Receivers
      AirConditioner  airConditioner = new AirConditioner();
      GarageDoor garageDoor = new GarageDoor();
      LivingRoomLight livingRoomLight = new LivingRoomLight();
      OutdoorLight outdoorLight = new OutdoorLight();
      
-  // Create on commands
+     // Create on commands
      Command airConditionerOnCommand = new AirConditionerTurnONCommand(airConditioner);
      Command garageDoorOpenCommand = new GarageDoorTurnONCommand(garageDoor);
      Command livingRoomLightOnCommand = new LivingRoomLightTurnONCommand(livingRoomLight);
@@ -48,3 +61,5 @@ public static void main(String[] args) {
      remoteControl.resetAllButtons();
  }
 }
+
+
