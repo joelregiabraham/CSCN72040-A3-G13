@@ -1,8 +1,8 @@
 
-public class OutdoorLightCommand implements Command{
+public class OutdoorLightTurnONCommand implements Command{
 	private OutdoorLight outdoorLight;
 	
-	public OutdoorLightCommand(OutdoorLight outdoorLight) {
+	public OutdoorLightTurnONCommand(OutdoorLight outdoorLight) {
 		this.outdoorLight = outdoorLight;
 	}
 	

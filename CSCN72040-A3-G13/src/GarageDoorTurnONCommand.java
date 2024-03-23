@@ -1,9 +1,9 @@
 
 // GarageDoorCommand.java
-public class GarageDoorCommand implements Command{
+public class GarageDoorTurnOFFCommand implements Command{
 	private GarageDoor garageDoor;
 	
-	public GarageDoorCommand(GarageDoor garageDoor) {
+	public GarageDoorTurnOFFCommand(GarageDoor garageDoor) {
 		this.garageDoor = garageDoor;
 	}
 	

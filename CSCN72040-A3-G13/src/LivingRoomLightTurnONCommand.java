@@ -1,9 +1,9 @@
 
-public class LivingRoomLightCommand implements Command{
+public class LivingRoomLightTurnONCommand implements Command{
 	
 	private LivingRoomLight livingRoomLight;
 	
-	public LivingRoomLightCommand(LivingRoomLight livingRoomLight) {
+	public LivingRoomLightTurnONCommand(LivingRoomLight livingRoomLight) {
 		this.livingRoomLight = livingRoomLight;
 	}
 	
