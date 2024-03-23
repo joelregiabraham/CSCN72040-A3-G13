@@ -4,17 +4,8 @@ public class Client {
 
 public static void main(String[] args) {
 	
-	// Calling Swing JFrame GUI:
-	EventQueue.invokeLater(new Runnable() {
-		public void run() {
-			try {
-				MainWindow frame = new MainWindow();
-				frame.setVisible(true);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}
-	});
+	// Create RemoteControl instance
+    RemoteControl remoteControl = new RemoteControl();
 	 
 	// Create Receivers
      AirConditioner  airConditioner = new AirConditioner();
@@ -35,9 +26,10 @@ public static void main(String[] args) {
      Command outdoorLightOffCommand = new OutdoorLightTurnOFFCommand(outdoorLight);
 
      // Create remote control
-     RemoteControl remoteControl = new RemoteControl();
+     //RemoteControl remoteControl = new RemoteControl();
 
      // Program slots
+  // Program slots
      remoteControl.setCommand("Air-Conditioner Slot ON", airConditionerOnCommand);
      remoteControl.setCommand("Garage Door Slot OPEN", garageDoorOpenCommand);
      remoteControl.setCommand("Living Room Light Slot ON", livingRoomLightOnCommand);
@@ -47,18 +39,30 @@ public static void main(String[] args) {
      remoteControl.setCommand("Living Room Light Slot OFF", livingRoomLightOffCommand);
      remoteControl.setCommand("Outdoor Light Slot OFF", outdoorLightOffCommand);
 
+
      // Press buttons
-     remoteControl.pressButton("Air-Conditioner Slot ON");
-     remoteControl.pressButton("Garage Door Slot OPEN");
-     remoteControl.pressButton("Living Room Light Slot ON");
-     remoteControl.pressButton("Outdoor Light Slot ON");
-     remoteControl.pressButton("Air-Conditioner Slot OFF");
-     remoteControl.pressButton("Garage Door Slot CLOSE");
-     remoteControl.pressButton("Living Room Light Slot OFF");
-     remoteControl.pressButton("Outdoor Light Slot OFF");
+		/*
+		 * remoteControl.pressButton("Air-Conditioner Slot ON");
+		 * remoteControl.pressButton("Garage Door Slot OPEN");
+		 * remoteControl.pressButton("Living Room Light Slot ON");
+		 * remoteControl.pressButton("Outdoor Light Slot ON");
+		 * remoteControl.pressButton("Air-Conditioner Slot OFF");
+		 * remoteControl.pressButton("Garage Door Slot CLOSE");
+		 * remoteControl.pressButton("Living Room Light Slot OFF");
+		 * remoteControl.pressButton("Outdoor Light Slot OFF");
+		 */
 
      // Reset all buttons
-     remoteControl.resetAllButtons();
+     //remoteControl.resetAllButtons();
+  // Create and display the GUI
+     EventQueue.invokeLater(() -> {
+         try {
+             MainWindow frame = new MainWindow(remoteControl);
+             frame.setVisible(true);
+         } catch (Exception e) {
+             e.printStackTrace();
+         }
+     });
  }
 }
 
