@@ -6,6 +6,7 @@ import javax.swing.JButton;
 import javax.swing.JTextField;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.SwingConstants;
 
 public class MainWindow extends JFrame  {
 
@@ -43,7 +44,7 @@ public class MainWindow extends JFrame  {
         contentPane.add(garageOpnBttn);
         
         JButton garageClsBttn = new JButton("Garage Door CLOSE");
-        garageClsBttn.setBounds(236, 72, 179, 39);
+        garageClsBttn.setBounds(236, 78, 179, 39);
         contentPane.add(garageClsBttn);
         
         JButton lRoomOnBttn = new JButton("Living Room Light ON");
@@ -51,7 +52,7 @@ public class MainWindow extends JFrame  {
         contentPane.add(lRoomOnBttn);
         
         JButton lRoomOffBttn = new JButton("Living Room Light OFF");
-        lRoomOffBttn.setBounds(236, 122, 179, 39);
+        lRoomOffBttn.setBounds(236, 128, 179, 39);
         contentPane.add(lRoomOffBttn);
         
         JButton odLightOnBttn = new JButton("Outdoor Light ON");
@@ -59,7 +60,7 @@ public class MainWindow extends JFrame  {
         contentPane.add(odLightOnBttn);
         
         JButton odLightOffBttn = new JButton("Outdoor Light OFF");
-        odLightOffBttn.setBounds(236, 172, 179, 39);
+        odLightOffBttn.setBounds(236, 178, 179, 39);
         contentPane.add(odLightOffBttn);
         
         JButton unusedSltBttn = new JButton("Unused Slot");
@@ -75,24 +76,55 @@ public class MainWindow extends JFrame  {
         contentPane.add(resetBttn);
         
         textField = new JTextField();
+        textField.setHorizontalAlignment(SwingConstants.CENTER);
         textField.setBounds(22, 228, 393, 35);
         contentPane.add(textField);
         textField.setColumns(10);
 
-        // Add action listeners to buttons
-        acOnBttn.addActionListener(e -> remoteControl.pressButton("Air-Conditioner Slot ON"));
-        acOffBttn.addActionListener(e -> remoteControl.pressButton("Air-Conditioner Slot OFF"));
-        garageOpnBttn.addActionListener(e -> remoteControl.pressButton("Garage Door Slot OPEN"));
-        garageClsBttn.addActionListener(e -> remoteControl.pressButton("Garage Door Slot CLOSE"));
-        lRoomOnBttn.addActionListener(e -> remoteControl.pressButton("Living Room Light Slot ON"));
-        lRoomOffBttn.addActionListener(e -> remoteControl.pressButton("Living Room Light Slot OFF"));
-        odLightOnBttn.addActionListener(e -> remoteControl.pressButton("Outdoor Light Slot ON"));
-        odLightOffBttn.addActionListener(e -> remoteControl.pressButton("Outdoor Light Slot OFF"));
+        // Add action listeners to buttons.
+        // Text fields have been updated to reflect changes from command interface.
+        acOnBttn.addActionListener(e -> {
+        	remoteControl.pressButton("Air-Conditioner Slot ON");
+        	textField.setText(e.getActionCommand());
+        });
+        acOffBttn.addActionListener(e -> {
+        	remoteControl.pressButton("Air-Conditioner Slot OFF");
+        	textField.setText(e.getActionCommand());
+        });
+        garageOpnBttn.addActionListener(e ->{
+        	remoteControl.pressButton("Garage Door Slot OPEN");
+        	textField.setText(e.getActionCommand());
+        });
+        garageClsBttn.addActionListener(e -> {
+        	remoteControl.pressButton("Garage Door Slot CLOSE");
+        	textField.setText(e.getActionCommand());
+        });
+        lRoomOnBttn.addActionListener(e -> {
+        	remoteControl.pressButton("Living Room Light Slot ON");
+        	textField.setText(e.getActionCommand());
+        });
+        lRoomOffBttn.addActionListener(e -> {
+        	remoteControl.pressButton("Living Room Light Slot OFF");
+        	textField.setText(e.getActionCommand());
+        });
+        odLightOnBttn.addActionListener(e -> {
+        	remoteControl.pressButton("Outdoor Light Slot ON");
+        	textField.setText(e.getActionCommand());
+        });
+        odLightOffBttn.addActionListener(e -> {
+        	remoteControl.pressButton("Outdoor Light Slot OFF");
+        	textField.setText(e.getActionCommand());
+        });
+        unusedSltBttn.addActionListener(e->
+        {
+        	// Modify as needed.
+        	textField.setText("This slot has no functionality.");
+        });
       
 
         // Add action listeners to undo and reset buttons
         undoBttn.addActionListener(e -> {
-            // Your undo action logic goes here
+        		// Implementation is pending.
         });
         resetBttn.addActionListener(e -> {
             remoteControl.resetAllButtons();
