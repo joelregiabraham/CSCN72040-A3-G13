@@ -144,7 +144,8 @@ public class MainWindow extends JFrame  {
 
         // Add action listeners to undo and reset buttons
         undoBttn.addActionListener(e -> {
-        		// Implementation is pending.
+        	remoteControl.undoButton();
+        	textField.setText("Undo button pressed.");
         });
         resetBttn.addActionListener(e -> {
             remoteControl.resetAllButtons();

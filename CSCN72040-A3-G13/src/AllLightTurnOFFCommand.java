@@ -16,4 +16,11 @@ public class AllLightTurnOFFCommand implements Command {
     	livingRoomLight.turnOff();
     	outdoorLight.turnOff();
     }
+    
+    @Override
+	public void undo()
+	{
+		livingRoomLight.turnOn();
+		livingRoomLight.turnOn();
+	}
 }

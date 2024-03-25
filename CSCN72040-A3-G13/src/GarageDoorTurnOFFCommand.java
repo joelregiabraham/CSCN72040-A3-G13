@@ -8,7 +8,14 @@ public class GarageDoorTurnOFFCommand implements Command{
 	}
 	
 	@Override
-	public void execute() {
+	public void execute()
+	{
 		garageDoor.turnOff();
+	}
+	
+	@Override
+	public void undo()
+	{
+		garageDoor.turnOn();
 	}
 }

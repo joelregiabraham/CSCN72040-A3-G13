@@ -11,4 +11,9 @@ public class LivingRoomLightTurnONCommand implements Command{
 	public void execute() {
 		livingRoomLight.turnOn();
 	}
+	
+	@Override
+	public void undo(){
+		livingRoomLight.turnOff();
+	}
 }

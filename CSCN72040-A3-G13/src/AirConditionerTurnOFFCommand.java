@@ -10,8 +10,13 @@ public class AirConditionerTurnOFFCommand implements Command {
 	
 	@Override
 	public void execute() {
-		airConditioner.turnOff();
-		
+		airConditioner.turnOff();	
+	}
+	
+	@Override
+	public void undo()
+	{
+		airConditioner.turnOn();
 	}
 
 }

@@ -30,15 +30,6 @@ public class RemoteControl {
     }
     
 
-    public void undoButton(String slot) {
-            if (!executedCommands.isEmpty()) {
-                Command lastCommand = executedCommands.pop();
-                lastCommand.undo();
-            } else {
-                System.out.println("No command to undo.");
-            }
-        }
-
     public void resetAllButtons() {
         commands.clear();
         System.out.println("All buttons have been reset.");
@@ -46,7 +37,12 @@ public class RemoteControl {
     
     public void undoButton()
     {
-    	System.out.println("Slots remapped.");
+    	 if (!executedCommands.isEmpty()) {
+             Command lastCommand = executedCommands.pop();
+             lastCommand.undo();
+         } else {
+             System.out.println("No command to undo.");
+         }
     }
 }
 

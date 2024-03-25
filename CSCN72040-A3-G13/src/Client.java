@@ -13,6 +13,7 @@ public static void main(String[] args) {
      LivingRoomLight livingRoomLight = new LivingRoomLight();
      OutdoorLight outdoorLight = new OutdoorLight();
      AllLight allLight = new AllLight();
+     Undo undo = new Undo();
      
      // Create on commands
      Command airConditionerOnCommand = new AirConditionerTurnONCommand(airConditioner);
@@ -20,6 +21,7 @@ public static void main(String[] args) {
      Command livingRoomLightOnCommand = new LivingRoomLightTurnONCommand(livingRoomLight);
      Command outdoorLightOnCommand = new OutdoorLightTurnONCommand(outdoorLight);
      Command allLightOnCommand = new AllLightTurnONCommand(livingRoomLight, outdoorLight);
+     
 
      // Create off commands
      Command airConditionerOffCommand = new AirConditionerTurnOFFCommand(airConditioner);
@@ -28,11 +30,11 @@ public static void main(String[] args) {
      Command outdoorLightOffCommand = new OutdoorLightTurnOFFCommand(outdoorLight);
      Command allLightOffCommand = new AllLightTurnOFFCommand(livingRoomLight, outdoorLight);
 
+     
      // Create remote control
      //RemoteControl remoteControl = new RemoteControl();
-
      // Program slots
-  // Program slots
+     // Program slots
      remoteControl.setCommand("Air-Conditioner Slot ON", airConditionerOnCommand);
      remoteControl.setCommand("Garage Door Slot OPEN", garageDoorOpenCommand);
      remoteControl.setCommand("Living Room Light Slot ON", livingRoomLightOnCommand);
@@ -60,7 +62,7 @@ public static void main(String[] args) {
 
      // Reset all buttons
      //remoteControl.resetAllButtons();
-  // Create and display the GUI
+     // Create and display the GUI
      EventQueue.invokeLater(() -> {
          try {
              MainWindow frame = new MainWindow(remoteControl);

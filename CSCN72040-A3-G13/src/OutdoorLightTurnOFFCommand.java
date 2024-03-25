@@ -10,4 +10,9 @@ public class OutdoorLightTurnOFFCommand implements Command{
 	public void execute() {
 		outdoorLight.turnOff();
 	}
+	
+	@Override
+	public void undo() {
+		outdoorLight.turnOn();
+	}
 }
